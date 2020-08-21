@@ -1,0 +1,11 @@
+name: Trigger emails 
+on:
+  schedule:
+    - cron: '0 9 * * sat' # At 09:00 on Saturday 
+jobs:
+  build:
+    name: Request Netlify Webhook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl request
+        run: curl -X POST -d {} http://localhost:61492/.netlify/functions/cleaner 
